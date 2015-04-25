@@ -1,7 +1,9 @@
 # Lako Documentation 
 
-* Installation
-* Modules and Libs
+* [Installation](#installation)
+* [Modules and Libs](#modules-and-libs)
+  * [Creating a lako library from scratch](#creating-a-lako-library-from-scratch)
+  * [Creating a lako Module](#creating-a-lako-module)
 * Database
   * Creating Objects
   * Reading
@@ -68,7 +70,7 @@ A lako module is just a directory on disk with bunch of libraries. It is to stru
 
 ### Creating a lako library from scratch
 
-First clearly define what your library will. Tip: Treat you library as an API for a specific feature. Split into multiple libraries when needed and make a module of it.
+First clearly define what your library will do. Tip: Treat you library as an API for a specific feature. Split into multiple libraries when needed and make a module of it.
 
 ```php
 
