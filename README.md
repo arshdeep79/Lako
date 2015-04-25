@@ -59,4 +59,19 @@ if(!class_exists('lako')){
 }
 ```
 
+## Modules and Libs
+
+A Lako Library is essentially a php class with its name prefixed with 'lako_' . There are some more rules to make a normal php class file a lako library. But we will get to those in a bit. 
+
+A lako module is just a directory on disk with bunch of libraries. It is to structure the code better and allow Lako to auto load libraries on demand.
+
+
+### Creating a lako library from scratch
+
+First clearly define what your library will do and what.  Tip: Treat you library as an API to a specific feature. Split into multiple libraries when needed.
+
+
+
+
+
 
