@@ -4,6 +4,7 @@
 * [Modules and Libs](#modules-and-libs)
   * [Creating a lako library from scratch](#creating-a-lako-library-from-scratch)
   * [Creating a lako Module](#creating-a-lako-module)
+  * [Using a library](#using-a-library)
 * Database
   * Creating Objects
   * Reading
@@ -112,6 +113,40 @@ lako::add_modules_path('/path/to/modules');
 ```
 e-commerce is one the module, the directory 'modules' can hold any number of modules.
 
+
+
+### Using a library
+
+To use a library you have to get an instance or in some cases create an instance yourself. First let us see how lako handles the singleton instances.
+
+```php
+
+//getting a singleton instance for a library
+$config = lako::get('config');
+
+//Use its API/functions
+$config_data = $config->read();
+
+//or use chaining and type less
+$config_data = lako::get('config')->read();
+
+```
+Lako will automatically search all the modules for the given library then it will create an instance of it and return it to the caller. Lako will never recreate instance if its already present. So do not worry about using chaining or try to cache the returned instance.
+
+
+Now let's see how lako will deal with non singleton libraries. The core templates library is one example of non singleton library.
+
+```php
+
+//import a library
+lako::import('config');
+
+//Create instance
+$config_instance = new lako_config(array('My'=>'config'));
+$config_data = $config_instance->read();
+
+```
+import is similar to require once. But its smart in way that it finds library by itself. The code above should be pretty easy to understand.
 
 
 
