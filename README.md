@@ -148,6 +148,10 @@ $config_data = $config_instance->read();
 ```
 import is similar to require once. But its smart in way that it finds library by itself. The code above should be pretty easy to understand.
 
+### Database
+
+Lako has few libraries those are involved in making a seamless DB abstraction layer. We will discuss all those in detail from a very practical point of view. We will make a small Movie database and see how lako deals with it.
+
 
 
 
