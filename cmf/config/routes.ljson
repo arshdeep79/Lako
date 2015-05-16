@@ -1,0 +1,24 @@
+{
+  "patterns" : {
+    "/" : {
+      "data_provider" : "home",
+      "template"      : "home"
+    },
+    "/admin" : {
+      "data_provider" : "admin_home",
+      "template"      : "admin/home"
+    },
+    "/admin/objects" : {
+      "data_provider" : "admin_objects",
+      "template"      : "admin/objects"
+    },
+    "/admin/objects/create" : {
+      "data_provider" : "admin_objects_create",
+      "template"      : "admin/objects/create"
+    },
+    "404" : {
+      "data_provider" : null,
+      "template"      : "404"
+    }
+  }
+}

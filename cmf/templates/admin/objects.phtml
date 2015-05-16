@@ -1,0 +1,15 @@
+<? lako::get('cmf')->templates->render('admin/header') ?>
+
+<p>&nbsp;</p>
+<h1 class="text-center">Objects</h1>
+<div>
+  <a href='/lako/cmf/index.php/admin/objects/create' class="btn btn-small btn-primary">+ New Object</a>
+</div>
+<? if(!count($data['objects'])): ?>
+  <p class="text-center">
+    No objects present in system. <a href="/lako/cmf/index.php/admin/objects/create">Create one now</a>
+  </p>
+<? endif; ?>
+
+
+<? lako::get('cmf')->templates->render('admin/footer') ?>

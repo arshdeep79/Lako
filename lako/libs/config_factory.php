@@ -14,28 +14,20 @@ class lako_config_factory extends lako_lib_base{
     parent::__construct($config);
     lako::import('loader');
     lako::import('ljson');
+    
     $this->loader = new lako_loader();
   }
   
   function get($in_conf){
-    $file = lako_ljosn::make_ljson_file($in_file_path);
+    $file = lako_ljson::make_ljson_file($in_conf);
     $file = $this->loader->locate($file);
     if(!$file)
-      throw new Exeption('Not able to find configuration file '. $file .'for ');
-    echo "<pre>";
-    print_r($file);
-    exit;
+      throw new Exception('Not able to find configuration file '. $file .'for ');
+    return lako::get('ljson')->require_file($file);
   }
+
   
-  
-  public function make_ljson_file($in_path){
-    $ext = strtolower((String)pathinfo($in_path, PATHINFO_EXTENSION));
-    if($ext != 'ljson')
-      return $in_path.'.ljson';
-    return $in_path;
-  }
-  
-  function add_path($path){
+  public function add_path($path){
     return $this->loader->add_path($path);
   }
 }

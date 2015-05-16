@@ -1,0 +1,89 @@
+<? lako::get('cmf')->templates->render('admin/header') ?>
+<p>&nbsp;</p>
+<h1 class="text-center">Create Object</h1>
+<div>
+  <a href='/lako/cmf/index.php/admin/objects' class="btn btn-small btn-danger">X Cancel</a>
+</div>
+
+<form class="form-horizontal form-object-create">
+  <div class="form-group has-feedback">
+    <label for="object-name" class="col-md-1 control-label">Name</label>
+    <div class="col-md-11">
+      <input type="text" class="form-control " id="object-name" data-bind="value:name.text , textInput: name.text_live" placeholder="Name Of your object"  aria-describedby="inputSuccess2Status">
+      
+      <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true" data-bind="visible: name.is_valid()"></span>
+      <span id="inputSuccess2Status" class="sr-only" data-bind="visible: name.is_valid()">(success)</span>
+      
+      
+      <span class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true" data-bind="visible: !name.is_valid()"></span>
+      <span id="inputError2Status" class="sr-only" data-bind="visible: !name.is_valid()">(error)</span>
+  
+      
+    </div>
+  </div>
+  
+  <fieldset data-bind="visible: name.is_valid()">
+    <legend>Local Data</legend>
+    <div class="col-md-5">
+      Name
+    </div>
+    <div class="col-md-5">
+      Data Type
+    </div>
+      
+    <div class="row" data-bind="foreach: local_data">
+      <div class="col-md-5">
+        <input type="text" class="form-control" id="exampleInputEmail2" data-bind="value: name.text" placeholder="" />
+      </div>
+      <div class="col-md-5">
+        <select class="form-control" 
+                data-bind="
+                  options: data_type_options,
+                  optionsText: 'name',
+                  value: 'value',
+                  selectedOptions: data_type
+                "></select>
+        
+      </div>
+      <div class="col-md-2">
+        <a href="javascript:;" data-bind="click: $root.delete_local_data">Delete</a>
+      </div>
+    </div>
+    
+    <div><a href="#" class="btn" data-bind="click: new_local_data">+ New Local Data</a></div>
+  </fieldset>
+  
+  <fieldset data-bind="visible: name.is_valid()">
+    <legend>Linked Objects</legend>
+      <div class="col-md-4">
+        Link name
+      </div>
+      <div class="col-md-3">
+        Link Type
+      </div>
+      <div class="col-md-3">
+        Object
+      </div>
+      
+      
+    <div class="row" data-bind="foreach: linked_objects">
+      <div class="col-md-4">
+        <input type="text" class="form-control" id="exampleInputEmail2" placeholder="" />
+      </div>
+      <div class="col-md-3">
+        <input type="email" class="form-control" id="exampleInputEmail2" placeholder="jane.doe@example.com" />
+      </div>
+      <div class="col-md-3">
+        <input type="email" class="form-control" id="exampleInputEmail2" placeholder="jane.doe@example.com" />
+      </div>
+      <div class="col-md-2">
+        <a href="javascript:;" data-bind="click: $root.delete_linked_object">Delete</a>
+      </div>
+    </div>
+    <div><a href="#" class="btn" data-bind="click: new_linked_object">+ New Linked Object</a></div>
+      
+  </fieldset>
+  
+</form>
+<? lako::get('cmf')->templates->render('admin/footer',lako::get('data_provider')->fill_stub($data)); ?>
+

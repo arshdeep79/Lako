@@ -1,5 +1,30 @@
 # Lako Documentation 
 
+It will be a combination of GUI web admin and coding interface.
+Some things you will only be able to do via web panel and something you will only do via coding interface.
+
+A typical page will be like this
+
+1 - Generate Data to display to user
+2 - Represent that data in template
+
+1 - Data generation can be simple or complex. For simple generation there will be a web panel.
+    for a complex system user can code it himself, by coding libraries.
+    
+2 - The view or templates will receive this data and just print it. Right now there are no smart templates. It will be PHP based normal templates.
+ 
+1- Generates data with taken input from various global sources
+2- A web panel that helps you generates that input using some queries
+
+Input from sources like 
+Cookies
+SESSION
+GET
+POST
+SERVER
+
+
+
 * [Installation](#installation)
 * [Modules and Libs](#modules-and-libs)
   * [Creating a lako library from scratch](#creating-a-lako-library-from-scratch)
